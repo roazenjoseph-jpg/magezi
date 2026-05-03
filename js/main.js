@@ -158,12 +158,77 @@ function initHeroBackgroundSlider() {
  */
 function initFormHandler() {
     const contactForm = document.getElementById('contact-form');
-    
+
     if (contactForm) {
-        contactForm.addEventListener('submit', function() {
-            setTimeout(() => {
-                alert("✅ Thank you! Your message has been received. We'll get back to you soon.");
-            }, 600);
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(contactForm);
+            const formAction = contactForm.getAttribute('action');
+
+            // Submit form data using fetch to avoid page navigation
+            fetch(formAction, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Clear form fields only
+                    contactForm.reset();
+
+                    // Show success message
+                    showToast("✅ Thank you! Your message has been received. We'll get back to you soon.", 'success');
+                } else {
+                    showToast("❌ Something went wrong. Please try again.", 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                showToast("❌ Network error. Please check your connection.", 'error');
+            });
         });
     }
+}
+
+/**
+ * Professional Toast Notification System
+ */
+function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type} show`;
+    
+    const icons = {
+        success: '✅',
+        error: '❌',
+        warning: '⚠️',
+        info: 'ℹ️'
+    };
+    
+    toast.innerHTML = `
+        <div class="toast-content">
+            <span class="toast-icon">${icons[type] || icons.info}</span>
+            <span class="toast-message">${message}</span>
+        </div>
+        <div class="toast-progress"></div>
+    `;
+    
+    container.appendChild(toast);
+    
+    // Auto remove after 4 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        toast.classList.add('hide');
+        setTimeout(() => toast.remove(), 500);
+    }, 4000);
+    
+    // Allow manual close
+    toast.addEventListener('click', () => {
+        toast.classList.remove('show');
+        toast.classList.add('hide');
+        setTimeout(() => toast.remove(), 500);
+    });
 }
