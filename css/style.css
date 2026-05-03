@@ -1,0 +1,640 @@
+/* =============================================
+    ANESIS AIR SOLUTIONS - MAIN STYLESHEET
+    Author: Anesis Air Solutions
+    Version: 2.0
+    ============================================= */
+
+:root {
+    --primary: #00a6c4;
+    --secondary: #0073e6;
+    --accent: #00d4aa;
+    --dark: #0f172a;
+    --light: #f8fafc;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+}
+
+section { 
+    padding: 90px 5%; 
+}
+
+.section-title {
+    text-align: center; 
+    font-size: 2.6rem; 
+    margin-bottom: 3.5rem;
+    color: var(--dark);
+}
+
+/* ------------------------------
+    NAVIGATION BAR
+------------------------------ */
+.navbar {
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    color: white; 
+    font-size: 1.85rem; 
+    font-weight: 700; 
+    text-decoration: none;
+}
+
+.logo img { 
+    height: 58px; 
+    border-radius: 10px; 
+}
+
+.nav-links {
+    display: flex; 
+    gap: 2.2rem; 
+    list-style: none; 
+    transition: 0.5s ease-in;
+}
+
+.nav-links a {
+    color: white; 
+    text-decoration: none; 
+    font-weight: 500; 
+    transition: 0.3s;
+}
+
+.nav-links a:hover { 
+    color: var(--accent); 
+}
+
+/* ------------------------------
+    HAMBURGER MENU (MOBILE)
+------------------------------ */
+.hamburger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ------------------------------
+    HERO SECTION
+------------------------------ */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
+}
+
+.bg1 { opacity: 1; }
+.bg2 { opacity: 0; }
+
+.hero-content {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.hero::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.4rem; 
+    margin-bottom: 1rem; 
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.35rem; 
+    max-width: 700px; 
+    margin: 0 auto 2rem;
+}
+
+.cta-btn {
+    background: var(--accent); 
+    color: white; 
+    padding: 16px 36px;
+    border-radius: 50px; 
+    font-weight: 600; 
+    text-decoration: none;
+    font-size: 1.15rem; 
+    transition: all 0.4s;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    background: #00b894; 
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(0,212,170,0.4);
+}
+
+/* ------------------------------
+    ABOUT SECTION
+------------------------------ */
+.about {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 4rem; 
+    align-items: center;
+}
+
+.about img {
+    width: 100%; 
+    border-radius: 20px; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.j li::before {
+    content: '✔';
+    color: #0056b3; 
+    margin-right: 10px;
+}
+
+/* ------------------------------
+    SERVICES SECTION
+------------------------------ */
+.service-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
+    gap: 2rem;
+}
+
+.service-card {
+    background: white; 
+    padding: 2.8rem 2rem; 
+    border-radius: 20px;
+    text-align: center; 
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-15px); 
+    box-shadow: 0 25px 55px rgba(0,166,196,0.18);
+}
+
+.service-card i { 
+    font-size: 3.2rem; 
+    color: var(--primary); 
+    margin-bottom: 1.2rem; 
+}
+
+/* ------------------------------
+    FEATURED PRODUCTS
+------------------------------ */
+.featured-products {
+    background: #fff;
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+.product-container {
+    padding: 20px 5%;
+}
+
+.product-carousel {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+    scrollbar-width: none;
+}
+
+.product-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card {
+    min-width: 280px;
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 166, 196, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+.stars { 
+    color: #ffb400; 
+    font-size: 0.85rem; 
+    margin-bottom: 10px; 
+}
+
+.cart-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--secondary);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.product-card:hover .cart-btn {
+    opacity: 1;
+    transform: scale(1.1);
+    background: var(--accent);
+}
+
+.badge {
+    position: absolute;
+    top: 15px; left: 15px;
+    background: #64b400;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* ------------------------------
+    GALLERY SECTION
+------------------------------ */
+.gallery {
+    background: var(--light);
+}
+
+.gallery-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 1.8rem;
+}
+
+.comparison-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative; 
+    border-radius: 18px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%; 
+    height: 320px; 
+    object-fit: cover; 
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img { 
+    transform: scale(1.08); 
+}
+
+.slide-set {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 18px;
+    aspect-ratio: 4/1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.gallery-item .overlay {
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    color: white; 
+    padding: 20px; 
+    font-weight: 600;
+}
+
+/* ------------------------------
+    TESTIMONIALS
+------------------------------ */
+.testimonial-section {
+    background: linear-gradient(135deg, #0f172a, #1e2937);
+    color: white;
+}
+
+.testimonial-carousel {
+    max-width: 800px; 
+    margin: 0 auto; 
+    position: relative; 
+    overflow: hidden;
+}
+
+.testimonial-slide {
+    display: none; 
+    padding: 2rem; 
+    text-align: center;
+}
+
+.testimonial-slide.active { 
+    display: block; 
+    animation: fade 0.8s; 
+}
+
+.testimonial-slide p {
+    font-size: 1.25rem; 
+    font-style: italic; 
+    margin-bottom: 1.5rem;
+}
+
+.client-info {
+    font-weight: 600; 
+    color: var(--accent);
+}
+
+@keyframes fade { 
+    from {opacity:0;} 
+    to {opacity:1;} 
+}
+
+/* ------------------------------
+    PRICING
+------------------------------ */
+.pricing {
+    background: white;
+}
+
+.pricing-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem;
+}
+
+.price-card {
+    background: white; 
+    border: 2px solid #e2e8f0; 
+    border-radius: 20px;
+    padding: 2.5rem 1.8rem; 
+    text-align: center; 
+    transition: all 0.4s;
+}
+
+.price-card.popular {
+    border-color: var(--accent); 
+    transform: scale(1.05); 
+    box-shadow: 0 20px 50px rgba(0,212,170,0.15);
+}
+
+.price-card h3 { 
+    font-size: 1.6rem; 
+    margin: 1rem 0; 
+}
+
+.price-card .price {
+    font-size: 2.8rem; 
+    font-weight: 700; 
+    color: var(--primary); 
+    margin: 1rem 0;
+}
+
+/* ------------------------------
+    CONTACT SECTION
+------------------------------ */
+.contact-section {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 4rem;
+}
+
+form input, form textarea {
+    width: 100%; 
+    padding: 14px; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 10px; 
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ------------------------------
+    FOOTER
+------------------------------ */
+.main-footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    padding: 80px 5% 20px;
+    font-size: 0.95rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-col h4 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent);
+    padding-left: 8px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,0.1);
+    font-size: 0.85rem;
+}
+
+.social-links a {
+    color: #cbd5e1; 
+    font-size: 1.9rem; 
+    margin: 0 18px; 
+    transition: 0.3s;
+}
+
+.social-links a:hover { 
+    color: var(--accent); 
+}
+
+/* ------------------------------
+    FLOATING WHATSAPP BUTTON
+------------------------------ */
+.whatsapp-float {
+    position:fixed; 
+    bottom:30px; 
+    right:30px; 
+    background:#25D366; 
+    width:68px; 
+    height:68px; 
+    border-radius:50%; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    box-shadow:0 8px 25px rgba(37,211,102,0.4); 
+    z-index:9999;
+}
+
+.whatsapp-float img {
+    width: 42px;
+}
+
+/* ------------------------------
+    RESPONSIVE MEDIA QUERIES
+------------------------------ */
+@media (max-width: 768px) {
+    .nav-links { 
+        position: fixed; 
+        top: 78px; 
+        left: -100%; 
+        width: 100%; 
+        height: calc(100vh - 78px);
+        background: var(--dark); 
+        flex-direction: column; 
+        align-items: center; 
+        padding-top: 3rem;
+        transition: 0.4s;
+    }
+    
+    .nav-links.active { 
+        left: 0; 
+    }
+    
+    .hamburger { 
+        display: flex; 
+    }
+    
+    .hero-content h1 { 
+        font-size: 2.5rem; 
+    }
+    
+    .about, .contact-section, .comparison-box { 
+        grid-template-columns: 1fr; 
+    }
+}
