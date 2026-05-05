@@ -504,6 +504,140 @@ form input, form textarea {
 }
 
 /* ------------------------------
+    NEWSLETTER PAGE STYLES
+------------------------------ */
+.newsletter-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    text-align: center;
+    padding: 120px 5% 80px;
+    position: relative;
+}
+
+.newsletter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.03"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.03"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.02"/><circle cx="10" cy="50" r="0.5" fill="white" opacity="0.02"/><circle cx="90" cy="30" r="0.5" fill="white" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.newsletter-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.newsletter-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.newsletter-hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.newsletter-form-section {
+    padding: 80px 5%;
+    background: #f8fafc;
+}
+
+.newsletter-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-form-container h2 {
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+#mc_embed_signup {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#mc_embed_signup .mc-field-group {
+    margin-bottom: 1.5rem;
+}
+
+#mc_embed_signup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+#mc_embed_signup input[type="email"],
+#mc_embed_signup input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#mc_embed_signup input[type="email"]:focus,
+#mc_embed_signup input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 166, 196, 0.1);
+}
+
+#mc_embed_signup .cta-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#mc_embed_signup .cta-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 166, 196, 0.4);
+}
+
+#mc_embed_signup .anesis-logo {
+    margin-top: 2rem;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+#mc_embed_signup .anesis-logo:hover {
+    filter: grayscale(0%);
+}
+
+.indicates-required {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.asterisk {
+    color: #ef4444;
+}
+
+/* ------------------------------
     FOOTER
 ------------------------------ */
 .main-footer {
